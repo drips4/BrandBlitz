@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import { randomUUID } from "crypto";
 import { z } from "zod";
 import { findUserById, upsertUser, type User } from "../db/queries/users";
+import { config } from "../lib/config";
 import { createError } from "../middleware/error";
 import { authLimiter } from "../middleware/rate-limit";
 import { authenticate } from "../middleware/authenticate";
@@ -22,7 +23,7 @@ const ACCESS_TOKEN_TTL = "15m";
 const REFRESH_TOKEN_TTL = "30d";
 
 function getJwtSecret(): string {
-  return process.env.JWT_SECRET!;
+  return config.JWT_SECRET;
 }
 
 function getRefreshSecret(): string {

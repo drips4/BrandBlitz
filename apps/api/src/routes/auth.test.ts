@@ -53,6 +53,10 @@ const userFixture: User = {
   google_id: "google-123",
   display_name: "Player One",
   username: "player1",
+  league: "gold",
+  total_score: 4200,
+  total_earned_usdc: "123.4500000",
+  challenges_played: 12,
   role: "player",
   phone_hash: "secret-phone-hash",
   phone_verified: true,
@@ -72,8 +76,8 @@ const userFixture: User = {
 
 describe("auth routes", () => {
   beforeEach(() => {
-    process.env.JWT_SECRET = "test-jwt-secret";
-    process.env.JWT_REFRESH_SECRET = "test-refresh-secret";
+    process.env.JWT_SECRET = "test-jwt-secret-12345678901234567890";
+    process.env.JWT_REFRESH_SECRET = "test-refresh-secret-1234567890123456";
     vi.clearAllMocks();
   });
 
